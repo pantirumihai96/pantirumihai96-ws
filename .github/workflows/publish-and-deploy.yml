@@ -69,6 +69,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+    outputs:
+      container: ${{ steps.meta.outputs.tags }}
+      
   staging:
     name: Deploy to Staging
     needs: [ package-and-publish ]
